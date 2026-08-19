@@ -1,0 +1,36 @@
+{
+  "manifest_version": "0.2",
+  "name": "rotacloud-mcp-node",
+  "display_name": "RotaCloud",
+  "version": "1.0.0",
+  "description": "MCP Server for RotaCloud API",
+  "author": { "name": "Joe Tebbett" },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "ROTACLOUD_API_KEY": "${user_config.api_key}",
+        "ROTACLOUD_USER_ID": "${user_config.user_id}"
+      }
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "RotaCloud API Key",
+      "description": "API key generated from your RotaCloud account",
+      "required": true,
+      "sensitive": true
+    },
+    "user_id": {
+      "type": "string",
+      "title": "Act as User ID (optional)",
+      "description": "ID of an active user to make requests on behalf of. Leave blank for admin access.",
+      "required": false
+    }
+  },
+  "license": "MIT"
+}

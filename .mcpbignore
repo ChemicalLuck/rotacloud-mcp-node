@@ -1,0 +1,3 @@
+# Dev-only: the spec and generator are used by `npm run generate`, never at runtime.
+vendor/
+scripts/
